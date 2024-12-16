@@ -238,7 +238,7 @@ dyad_rc_t dyad_dtl_flux_finalize (const dyad_ctx_t* ctx)
 {
     DYAD_C_FUNCTION_START();
     dyad_rc_t rc = DYAD_RC_OK;
-    if (ctx->dtl_handle == NULL) {
+    if (ctx->dtl_handle == NULL || !(ctx->dtl_handle->private_dtl.flux_dtl_handle)) {
         goto dtl_flux_finalize_done;
     }
     ctx->dtl_handle->private_dtl.flux_dtl_handle->h = NULL;
